@@ -20,3 +20,14 @@ exports.getUser= async(req,res)=>{
         console.log(error);
     }
 }
+
+exports.get= async(req,res)=>{
+    try {
+        const data = await user.find()
+        res.send(data)
+        console.log(data)
+    } catch (error) {
+        res.send({error: error.message});
+        console.log(error);
+    }
+}
