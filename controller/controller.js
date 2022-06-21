@@ -1,7 +1,14 @@
 const user = require("../model/user.js")
 exports.userPost = async(req,res) => {
     try {
-        const data  = await user.create(req.query);
+        const userr = new user ({
+            name:req.query.name,
+            email:req.query.email,
+            phone:req.query.phone,
+            DOB:req.query.DOB,
+            gender:req.query.gender
+        })
+        const data  = await user.insertMany(userr);
         res.send("user added")
         console.log("user added")
     } catch (error) {
