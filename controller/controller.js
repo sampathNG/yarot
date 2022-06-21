@@ -12,7 +12,7 @@ exports.userPost = async(req,res) => {
         res.send("user added")
         console.log("user added")
     } catch (error) {
-        res.send({error: error.message});
+        res.send(error);
         console.log(error);
     }
 }
